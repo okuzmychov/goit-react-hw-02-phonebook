@@ -1,18 +1,19 @@
 import styled from 'styled-components';
+import { Form } from 'formik';
 
-export const Wrapper = styled.ul`
+export const Wrapper = styled(Form)`
   display: flex;
   flex-direction: column;
   gap: 15px;
   padding: 12px;
-  border-radius: 5px;
-  width: 450px;
+  border-radius: 8px;
+  width: 350px;
 `;
 
-export const ContactInfo = styled.li`
+export const ContactInfo = styled(Form)`
   display: flex;
   flex-direction: row;
-  gap: 15px;
+  gap: 10px;
   align-items: center;
   justify-content: space-between;
 `;

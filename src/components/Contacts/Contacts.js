@@ -1,21 +1,32 @@
 import { Wrapper, ContactInfo, ButtonDelete } from './Contacts.styled';
+ import { Formik, Field, Form } from 'formik';
 
-export const Contacts = ({ contactInfo: { contacts }, onDeleteContact }) => {
+export const Contacts = () => {
   return (
     <div>
-      <Wrapper>
-        {contacts.map(contact => (
-          <ContactInfo key={contact.id}>
-            - {contact.name}: {contact.numbers.join(', ')}
-            <ButtonDelete
-              type="button"
-              onClick={() => onDeleteContact(contact.id)}
-            >
-              Delete
-            </ButtonDelete>
+  <Formik
+      initialValues={{
+        name: '',
+        number: '',
+      }}
+      onAddcontact={values => {
+        console.log(values);
+      }}
+    >
+        <Wrapper>
+          <ContactInfo>
+            Name
+            <Field name="name" type="text" placeholder="Oleg" />
           </ContactInfo>
-        ))}
+
+          <ContactInfo>
+            Number
+            <Field name="number" type="number" placeholder="123-45-67" />
+          </ContactInfo>
+          
+        <button type="add-contact">Add contact</button>
       </Wrapper>
+    </Formik>
     </div>
   );
 };

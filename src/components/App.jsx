@@ -27,8 +27,8 @@ export class App extends Component {
         <Contacts addContact={this.addContact}/>
 
         <h1>Contacts</h1>
-        <Filter />
-        <ContactsList contacts={contacts}/>
+        {/* <Filter />
+        <ContactsList contacts={contacts}/> */}
         
         <GlobalStyle />
       </Layout>
