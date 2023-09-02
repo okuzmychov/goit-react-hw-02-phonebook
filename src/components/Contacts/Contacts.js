@@ -22,7 +22,7 @@ export const Contacts = ({ onAdd }) => {
 
   return (
     <div>
-  <Formik
+    <Formik
       initialValues={{
         name: '',
         number: '',
@@ -31,7 +31,7 @@ export const Contacts = ({ onAdd }) => {
         onSubmit={(values, actions) => {
           onAdd({ ...values, id: nanoid() });
           actions.resetForm();
-           if (buttonRef.current) {
+            if (buttonRef.current) {
             buttonRef.current.blur();
           }
       }}
