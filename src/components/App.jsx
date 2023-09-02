@@ -20,9 +20,8 @@ export class App extends Component {
     }));
   };
 
-
   render() {
-    const { contacts, name } = this.state;
+    // const { contacts, name } = this.state;
 
     return (
       <Layout>
