@@ -13,9 +13,12 @@ export class App extends Component {
 
   addContact = newContact => {
     this.setState(pState => ({
-      contacts: [...pState.contacts, newContact],
-    }))
-  }
+      contacts: [...pState.contacts, {
+        id: nanoid(),
+        ...newContact,
+      },],
+    }));
+  };
 
 
   render() {
@@ -24,7 +27,7 @@ export class App extends Component {
     return (
       <Layout>
         <h1>Phonebook</h1>
-        <Contacts addContact={this.addContact}/>
+        <Contacts onAdd={this.addContact}/>
 
         <h1>Contacts</h1>
         {/* <Filter />

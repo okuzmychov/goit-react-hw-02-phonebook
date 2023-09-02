@@ -1,10 +1,12 @@
-import {
-  MainWrapper 
-} from './Input.styled';
-import { Component } from 'react';
+import { StyledTitle } from "./InputWrapper.styled";
 
-export class InputName extends Component {
-  state = {
-    name: '',
-    number: '',
-  };
+export const InputWrapper = ({ title, children }) => {
+  return (
+    <div>
+      <label>
+        <StyledTitle>{title}</StyledTitle>
+        {children}
+      </label>
+    </div>
+  );
+};
