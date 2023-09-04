@@ -1,4 +1,4 @@
-import { StyledTitle } from "./InputWrapper.styled";
+import { StyledTitle } from "./Input.styled";
 
 export const InputWrapper = ({ title, children }) => {
   return (

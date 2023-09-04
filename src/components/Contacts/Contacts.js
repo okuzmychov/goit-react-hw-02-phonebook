@@ -1,6 +1,7 @@
 import { Wrapper, Label, ErrorMsg, Button } from './Contacts.styled';
 import { Formik, Field } from 'formik';
 import { useRef } from 'react';
+import { InputWrapper } from 'components/Input/Input';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
 
@@ -13,7 +14,6 @@ const ContactSchema = Yup.object().shape({
   /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,
   'Phone number must be digits and can contain spaces, dashes, parentheses and can start with +'
 )
-    // .positive('Must be positive!')
     .required('Required'),
 });
 
@@ -37,19 +37,19 @@ export const Contacts = ({ onAdd }) => {
       }}
     >
         <Wrapper>
-          <Label>
-            Name
+          <InputWrapper title="Name">
+            {/* Name */}
             <Field name="name" type="text" />
             <ErrorMsg name="name" component="div" />
-          </Label>
+          </InputWrapper>
 
-          <Label>
-            Number
+          <InputWrapper title="Number">
+            {/* Number */}
             <Field name="number" type="tel" />
             <ErrorMsg name="number" component="div" />
-          </Label>
+          </InputWrapper>
           
-        <Button type="add-contact">Add contact</Button>
+        <Button type="submit">Add contact</Button>
       </Wrapper>
     </Formik>
     </div>
