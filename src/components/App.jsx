@@ -39,8 +39,8 @@ export class App extends Component {
         contact.number === newContact.number
     );
 
-    this.setState(pState => ({
-      contacts: [...pState.contacts, {
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, {
         id: nanoid(),
         ...newContact,
       },],
@@ -64,7 +64,7 @@ export class App extends Component {
   };
 
   render() {
-    const { contacts, name } = this.state;
+    const { contacts, filter } = this.state;
     const filteredContacts = this.filterContacts(contacts, filter);
     return (
       <Layout>
@@ -73,11 +73,12 @@ export class App extends Component {
 
         <h1>Contacts</h1>
         <Filter value={filter} onFilterChange={this.handleFiltrChange} />
-         <ContactList
+        
+        <ContactList
           contacts={filteredContacts}
           onDeleteContact={this.handleDeleteContact}
         />
-        
+
         <GlobalStyle />
       </Layout>
     );
