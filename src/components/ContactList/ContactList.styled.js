@@ -8,9 +8,9 @@ export const StyledWrapper = styled.ul`
     margin-top: 24px;
     margin-bottom: 16px;
     padding: 8px;
-    outline: 2px solid ${p => p.theme.colors.grey};
+    outline: 2px solid ${p => p.theme.colors.green};
     border-radius: 4px;
-    background-color: ${p => p.theme.colors.yellow};
+    background-color: ${p => p.theme.colors.lightgreen};
 `;
 
 export const StyledLi = styled.li`
@@ -28,7 +28,7 @@ export const StyledButton = styled.button`
     border-radius: 4px;
     &:hover,
     &:focus {
-    outline: 2px solid ${p => p.theme.colors.grey};
-    background-color: ${p => p.theme.colors.blue};
+    outline: 2px solid ${p => p.theme.colors.green};
+    background-color: ${p => p.theme.colors.lightgreen};
 }
 `;

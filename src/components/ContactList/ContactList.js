@@ -5,7 +5,7 @@ export const ContactList = ({ contacts, onDeleteContact }) => {
     <StyledWrapper>
       {contacts.map(item => (
         <StyledLi key={item.id}>
-          📱 {item.name}: {item.number}
+          {item.name}: {item.number}
           <StyledButton type="button" onClick={() => onDeleteContact(item.id)}>
             DELETE
           </StyledButton>
