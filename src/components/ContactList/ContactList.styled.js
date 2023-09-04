@@ -5,10 +5,10 @@ export const StyledWrapper = styled.ul`
     flex-direction: column;
     gap: 4px;
     max-width: 100%;
-    margin-top: 24px;
+    margin-top: 10px;
     margin-bottom: 16px;
     padding: 8px;
-    outline: 2px solid ${p => p.theme.colors.green};
+    outline: 1px solid ${p => p.theme.colors.green};
     border-radius: 4px;
     background-color: ${p => p.theme.colors.lightgreen};
 `;
@@ -28,7 +28,7 @@ export const StyledButton = styled.button`
     border-radius: 4px;
     &:hover,
     &:focus {
-    outline: 2px solid ${p => p.theme.colors.green};
+    outline: 1px solid ${p => p.theme.colors.green};
     background-color: ${p => p.theme.colors.lightgreen};
 }
 `;

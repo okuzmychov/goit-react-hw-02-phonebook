@@ -39,12 +39,16 @@ export class App extends Component {
         contact.number === newContact.number
     );
 
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, {
-        id: nanoid(),
-        ...newContact,
-      },],
-    }));
+ if (!isDublicate) {
+      this.setState(prevState => ({
+        contacts: [...prevState.contacts, {
+          id: nanoid(),
+          ...newContact,
+        }],
+      }));
+    } else {
+      alert('Contact already exists.');
+    }
   };
 
   handleFiltrChange = value => {

@@ -1,4 +1,4 @@
-import { Wrapper, Label, ErrorMsg, Button } from './Contacts.styled';
+import { Wrapper, ErrorMsg, StyleButton } from './Contacts.styled';
 import { Formik, Field } from 'formik';
 import { useRef } from 'react';
 import { InputWrapper } from 'components/Input/Input';
@@ -38,18 +38,16 @@ export const Contacts = ({ onAdd }) => {
     >
         <Wrapper>
           <InputWrapper title="Name">
-            {/* Name */}
             <Field name="name" type="text" />
             <ErrorMsg name="name" component="div" />
           </InputWrapper>
 
           <InputWrapper title="Number">
-            {/* Number */}
             <Field name="number" type="tel" />
             <ErrorMsg name="number" component="div" />
           </InputWrapper>
           
-        <Button type="submit">Add contact</Button>
+        <StyleButton type="submit" ref={buttonRef}>Add contact</StyleButton>
       </Wrapper>
     </Formik>
     </div>

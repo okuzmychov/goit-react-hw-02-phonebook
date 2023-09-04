@@ -23,13 +23,13 @@ font-size: 14px;
 color: red;
 `;
 
-export const Button = styled(Form)`
+export const StyleButton = styled(Form)`
   display: flex;
   width: 100%;
   padding: 4px;
   align-items: center;
   border: 1px solid black;
-  border-radius: 3px;
+  border-radius: 4px;
   justify-content: center;
   background-color: ${p => p.theme.colors.lightgreen};
   cursor: pointer;
