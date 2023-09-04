@@ -1,6 +1,16 @@
 import styled from 'styled-components';
 import { Form, ErrorMessage } from 'formik';
 
+export const FormStyled = styled(Form)`
+  margin-top: 16px;
+`;
+
+export const LabelSt = styled.label`
+  font-size: 21px;
+  display: block;
+  padding: 4px 0;
+`;
+
 export const Wrapper = styled(Form)`
   display: flex;
   flex-direction: column;

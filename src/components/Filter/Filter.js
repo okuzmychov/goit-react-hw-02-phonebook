@@ -1,14 +1,10 @@
-import { StyledWrapper, StyledInput, StyledTitle } from './Filter.styled';
+import { FilterForm } from './Filter.styled';
 
-export const Filter = ({ onFilterChange, value }) => {
+export const Filter = ({ onChange }) => {
   return (
-    <StyledWrapper>
-      <StyledTitle>Find contacts by name</StyledTitle>
-      <StyledInput
-        type="text"
-        value={value}
-        onChange={evt => onFilterChange(evt.target.value)}
-      ></StyledInput>
-    </StyledWrapper>
+     <FilterForm>
+      <label htmlFor="find">Find contacts by name:</label>
+      <input type="text" name="find" onChange={e => onChange(e.target.value)} />
+    </FilterForm>
   );
 };
