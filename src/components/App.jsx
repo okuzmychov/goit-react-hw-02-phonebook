@@ -1,6 +1,9 @@
 import { GlobalStyle } from 'GlobalStyle';
 import { Layout } from 'Layout';
 import { Component } from 'react';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Section } from './Section/Section';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
@@ -17,20 +20,28 @@ export class App extends Component {
     filter: '',
   };
 
- onSubmitForm = contact => {
-    if (this.state.contacts.some(el => el.number === contact.number)) {
-      alert(
-        `This number (${
-          contact.number
-        }) is already in the contact list, recorded as ${
-          this.state.contacts.find(el => el.number === contact.number).name
-        }`
+ onSubmitForm = newContact => {
+    const isDublicate = this.state.contacts.some(
+      contact =>
+        contact.name.toLowerCase() === newContact.name.toLowerCase() ||
+        contact.number === newContact.number
+    );
+
+    if (isDublicate) {
+      toast.error(
+        'A contact with this name or number is already in the list!',
+        {
+          position: 'top-right',
+          autoClose: 2500,
+          theme: 'colored',
+        }
       );
       return;
+    } else {
+      this.setState(prevState => ({
+        contacts: [...prevState.contacts, newContact],
+      }));
     }
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, contact],
-    }));
   };
 
   onChange = filter => {
@@ -62,6 +73,7 @@ export class App extends Component {
             <p>No contacts</p>
           )}
         </Section>
+        <ToastContainer />
         <GlobalStyle />
       </Layout>
     );
