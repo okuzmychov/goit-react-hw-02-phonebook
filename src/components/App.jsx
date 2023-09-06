@@ -44,34 +44,37 @@ export class App extends Component {
     }
   };
 
-  onChange = filter => {
-    this.setState({ filter: filter.toLowerCase() });
+ handleFiltrChange = value => {
+    this.setState({ filter: value });
   };
 
-  onDelete = id => {
+  filterContacts = (contacts, filter) => {
+    return contacts.filter(contact => {
+      return contact.name.toLowerCase().includes(filter.toLowerCase());
+    });
+  };
+
+  handleDeleteContact = contactId => {
     this.setState(prevState => ({
-      contacts: prevState.contacts.filter(el => el.id !== id),
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
     }));
   };
 
   render() {
+    const { contacts, filter } = this.state;
+    const filteredContacts = this.filterContacts(contacts, filter);
     return (
       <Layout>
       <Section title={'Phonebook'}>
         <ContactForm onSubmit={this.onSubmitForm} />
         </Section>
         <Section title={'Contacts'}>
-          <Filter onChange={this.onChange} />
-          {this.state.contacts.length ? (
-            <ContactList
-              contacts={this.state.contacts.filter(el =>
-                el.name.toLowerCase().includes(this.state.filter)
-              )}
-              onDelete={this.onDelete}
-            />
-          ) : (
-            <p>No contacts</p>
-          )}
+          <Filter value={filter} onFilterChange={this.handleFiltrChange} />
+
+        <ContactList
+          contacts={filteredContacts}
+          onDeleteContact={this.handleDeleteContact}
+        />
         </Section>
         <ToastContainer />
         <GlobalStyle />

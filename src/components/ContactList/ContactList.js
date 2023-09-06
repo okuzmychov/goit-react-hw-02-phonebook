@@ -1,6 +1,6 @@
 import { StyledWrapper, StyledLi, StyledButton } from './ContactList.styled';
 
-export const ContactList = ({ contacts, onDelete }) => {
+export const ContactList = ({ contacts, onDeleteContact }) => {
   return (
     <StyledWrapper>
       {contacts.map(({ id, name, number }) => (
@@ -8,7 +8,7 @@ export const ContactList = ({ contacts, onDelete }) => {
           <p>
             {name}: {number}
             </p>
-            <StyledButton type="button" id={id} onClick={e => onDelete(e.target.id)}>
+            <StyledButton type="button" id={id} onClick={() => onDeleteContact(id)}>
             DELETE
           </StyledButton>
         </StyledLi>
