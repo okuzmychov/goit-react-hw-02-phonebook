@@ -2,6 +2,12 @@ import styled from 'styled-components';
 import { Form, ErrorMessage } from 'formik';
 
 export const FormStyled = styled(Form)`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  width: 315px;
   margin-top: 16px;
 `;
 
@@ -11,14 +17,14 @@ export const LabelSt = styled.label`
   padding: 4px 0;
 `;
 
-export const Wrapper = styled(Form)`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 12px;
-  border-radius: 8px;
-  width: 300px;
-`;
+// export const Wrapper = styled(Form)`
+//   display: flex;
+//   flex-direction: column;
+//   gap: 10px;
+//   padding: 12px;
+//   border-radius: 8px;
+//   width: 300px;
+// `;
 
 export const Label = styled.label`
   display: flex;

@@ -1,4 +1,4 @@
-import { FormStyled, LabelSt, Wrapper, ErrorMsg } from './ContactForm.styled';
+import { FormStyled, LabelSt, ErrorMsg } from './ContactForm.styled';
 import { Formik, Field } from 'formik';
 import { ButtonSubmit } from 'components/Section/Section.styled';
 import { nanoid } from 'nanoid';
@@ -19,7 +19,6 @@ const ContactSchema = Yup.object().shape({
 export const ContactForm = ({ onSubmit }) => {
 
   return (
-    <div>
     <Formik
       initialValues={{
         name: '',
@@ -33,21 +32,16 @@ export const ContactForm = ({ onSubmit }) => {
         }}
       >
         <FormStyled>
-        <Wrapper>
             <LabelSt htmlFor="name">Name</LabelSt>
             <Field name="name" type="text" />
             <ErrorMsg name="name" component="div" />
-          </Wrapper>
 
-          <Wrapper>
           <LabelSt htmlFor="number">Number</LabelSt>
             <Field name="number" type="tel" />
             <ErrorMsg name="number" component="div" />
-          </Wrapper>
-          
+
           <ButtonSubmit type="submit">Add contact</ButtonSubmit>
           </FormStyled>
     </Formik>
-    </div>
-  );
+    );
 };

@@ -20,7 +20,20 @@ export class App extends Component {
     filter: '',
   };
 
- onSubmitForm = newContact => {
+    componentDidMount() {
+    const savedContscts = localStorage.getItem('contacts');
+    if (savedContscts !== null) {
+      this.setState({ contacts: JSON.parse(savedContscts) });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
+
+  onSubmitForm = (newContact) => {
     const isDublicate = this.state.contacts.some(
       contact =>
         contact.name.toLowerCase() === newContact.name.toLowerCase() ||
@@ -29,10 +42,10 @@ export class App extends Component {
 
     if (isDublicate) {
       toast.error(
-        'A contact with this name or number is already in the list!',
+        "Контакт з таким ім'ям або номером вже є в списку!",
         {
-          position: 'top-right',
-          autoClose: 2500,
+          position: 'top-center',
+          autoClose: 2700,
           theme: 'colored',
         }
       );
